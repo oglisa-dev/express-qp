@@ -1,0 +1,23 @@
+{
+  "name": "express-query-params-parser",
+  "version": "1.0.0",
+  "description": "Lightweight express middleware for parsing incoming request query parameters",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "oglisa-dev <ognjen.simic99@gmail.com>",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^29.5.3",
+    "jest": "^29.6.1",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.1.6"
+  }
+}
