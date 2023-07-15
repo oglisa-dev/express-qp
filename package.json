@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"description": "Lightweight express middleware for parsing incoming request query parameters",
 	"main": "lib/index.js",
-	"types": "dist/index.d.ts",
+	"types": "lib/index.d.ts",
 	"files": [
 		"lib/**/*"
 	],
