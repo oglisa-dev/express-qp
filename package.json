@@ -2,6 +2,7 @@
 	"name": "express-qp",
 	"version": "0.1.0",
 	"description": "Lightweight express middleware for parsing incoming request query parameters",
+	"keywords": ["express", "express-request", "query", "parser", "parse", "query-parser", "request-query"],
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"files": [
@@ -13,7 +14,6 @@
 		"format": "prettier . --write",
 		"info": "npm publish --dry-run"
 	},
-	"keywords": [],
 	"author": "oglisa-dev <ognjen.simic99@gmail.com>",
 	"license": "MIT",
 	"lint-staged": {
