@@ -15,7 +15,7 @@
 	},
 	"keywords": [],
 	"author": "oglisa-dev <ognjen.simic99@gmail.com>",
-	"license": "ISC",
+	"license": "MIT",
 	"lint-staged": {
 		"**/*": "prettier --write --ignore-unknown"
 	},
