@@ -10,7 +10,8 @@
 	"scripts": {
 		"build": "tsc",
 		"test": "jest",
-		"format": "prettier . --write"
+		"format": "prettier . --write",
+		"info": "npm publish --dry-run"
 	},
 	"keywords": [],
 	"author": "oglisa-dev <ognjen.simic99@gmail.com>",
