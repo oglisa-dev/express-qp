@@ -14,6 +14,9 @@
   "keywords": [],
   "author": "oglisa-dev <ognjen.simic99@gmail.com>",
   "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
   "devDependencies": {
     "@types/jest": "^29.5.3",
     "@types/qs": "^6.9.7",
