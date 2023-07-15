@@ -7,7 +7,8 @@ export type ReparsedQp =
 	| number
 	| boolean
 	| ReparsedQs
-	| Array<ReparsedQp>;
+	| Array<ReparsedQp>
+	| undefined;
 
 export type ReparsedQs = {
 	[Property in keyof ParsedQs]: ReparsedQp;

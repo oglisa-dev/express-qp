@@ -2,6 +2,10 @@ import { ParsedQs } from 'qs';
 import { ParsedQp, ReparsedQp, ReparsedQs } from './types';
 import { isArray, isBoolean, isNumber, isObject } from './assertions';
 
+export function parseRequestQuery(query: ParsedQs) {
+	return parseObject(query);
+}
+
 export function parseObject(query: ParsedQs) {
 	const result: ReparsedQs = {};
 

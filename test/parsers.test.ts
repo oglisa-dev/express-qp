@@ -72,7 +72,7 @@ describe('parsers', () => {
 			expect(parsed).toEqual(arr);
 		});
 
-		test('when called array of strings (no parsable strings) returns same array', () => {
+		test('when called with array of strings (no parsable strings) returns same array', () => {
 			const arr = ['test', 'test'];
 			const parsed = parseArray(arr);
 			expect(parsed).toEqual(arr);
