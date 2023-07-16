@@ -5,7 +5,7 @@ import { isArray, isBoolean, isNumber, isObject } from './assertions';
 export function parseRequestQuery(query: ParsedQs) {
 	return parseObject(query);
 }
-
+  
 export function parseObject(query: ParsedQs) {
 	const result: ReparsedQs = {};
 
