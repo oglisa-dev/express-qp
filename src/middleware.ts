@@ -5,4 +5,3 @@ export function qp(request: Request, response: Response, next: NextFunction) {
 	request.query = parseRequestQuery(request.query);
 	next();
 }
- 

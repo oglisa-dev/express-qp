@@ -1,4 +1,17 @@
-import { parseArray, parseBoolean, parseNumber, parseObject, parseValue } from '../src/parsers';
+import { parseNumber } from '../src/parsers/number.parser';
+import { parseArray } from '../src/parsers/array.parser';
+import { parseBoolean } from '../src/parsers/boolean.parser';
+import { parseValue } from '../src/parsers/value.parser';
+import { parseObject } from '../src/parsers/object.parser';
+
+jest.mock('../src/parsers/value.parser', () => {
+	const originalModule = jest.requireActual('../src/parsers/value.parser');
+	return {
+		__esModule: true,
+		...originalModule,
+		parseValue: jest.fn((value: any) => originalModule.parseValue(value))
+	};
+})
 
 describe('parsers', () => {
 	describe('parseNumber', function () {
@@ -72,45 +85,19 @@ describe('parsers', () => {
 			expect(parsed).toEqual(arr);
 		});
 
-		test('when called with array of strings (no parsable strings) returns same array', () => {
-			const arr = ['test', 'test'];
-			const parsed = parseArray(arr);
-			expect(parsed).toEqual(arr);
+		test('calls parseValue for every element of array', () => {
+			const arr: Array<string> = ['test1', 'test2', 'test3'];
+			parseArray(arr);
+			expect(parseValue).toHaveBeenCalledTimes(arr.length);
 		});
 
-		test('when called array of strings (with parsable numbers) returns array with parsed numbers', () => {
-			const arr = ['test', '1', '2.34', 'test'];
-			const expected = ['test', 1, 2.34, 'test'];
-			const parsed = parseArray(arr);
-			expect(parsed).toEqual(expected);
-		});
-
-		test('when called array of strings (with parsable booleans) returns array with parsed booleans', () => {
-			const arr = ['test', 'true', 'false', 'test'];
-			const expected = ['test', true, false, 'test'];
-			const parsed = parseArray(arr);
-			expect(parsed).toEqual(expected);
-		});
-
-		test('when called with array whose elements that are objects have no parsable properties returns same array', () => {
-			const arr = ['test', { property: 'a' }, 'test'];
-			const expected = ['test', { property: 'a' }, 'test'];
-			const parsed = parseArray(arr);
-			expect(parsed).toEqual(expected);
-		});
-
-		test('when called with array whose elements that are objects have parsable properties returns array with recursively parsed objects', () => {
-			const arr = ['test', { property1: '5', property2: '5.12', property3: 'false' }, 'test'];
-			const expected = ['test', { property1: 5, property2: 5.12, property3: false }, 'test'];
-			const parsed = parseArray(arr);
-			expect(parsed).toEqual(expected);
-		});
-
-		test('when called with array whose elements that are objects having parsable array properties returns array with recursively parsed objects', () => {
-			const arr = ['test', { property: ['test', '5.12', '5', 'false', 'test'] }, 'test'];
-			const expected = ['test', { property: ['test', 5.12, 5, false, 'test'] }, 'test'];
-			const parsed = parseArray(arr);
-			expect(parsed).toEqual(expected);
+		test('calls parseValue for every element of array with that element as parameter', () => {
+			const arr: Array<string> = ['test1', 'test2', 'test3'];
+			expect.assertions(arr.length);
+			parseArray(arr);
+			arr.forEach((parameter, index) => {
+				expect(parseValue).toHaveBeenNthCalledWith(index + 1, parameter);
+			});
 		});
 	});
 
